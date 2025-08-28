@@ -1,0 +1,52 @@
+# --- Python (základ) ---
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# --- VS Code lokální nastavení ---
+.vscode/
+
+# --- Build/artefakty ---
+build/
+dist/
+*.egg-info/
+
+# --- Logy & dočasné soubory ---
+*.log
+*.tmp
+*.bak
+
+# --- Databáze / větší binárky ---
+*.sqlite
+*.sqlite3
+*.db
+*.zip
+
+# --- MT5/EA artefakty v repu ---
+*.ex5
+*.set
+MQL5/Logs/
+Tester/
+Reports/
+
+# --- Tvoje projektové výstupy (nechceme v historii) ---
+bayes/results/
+reports/**/_jobs/**
+
+# Výstupy z optimalizací (velké / znovuvytvořitelné)
+Optimalizace/**/trials/**
+
+# Pokud si chceš držet jen kód a konfigurace, a ne výsledky:
+# (Případně ponech, jestli je opravdu chceš verzovat)
+# Optimalizace/**/opt_results.csv
+# Optimalizace/**/best_params.json
+# Optimalizace/**/context.json
+# Optimalizace/**/space.json
+
+# --- OS šum ---
+Thumbs.db
+.DS_Store
+
