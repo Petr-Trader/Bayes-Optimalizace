@@ -1,0 +1,112 @@
+vytvořit vlastní portfolio s realistickými parametry (Sharpe 1–2, DD <20%, výnos 20–40% p.a.).
+
+Návrh portfolia
+1️⃣ Trend-following (indexy & komodity)
+
+Logika: breakout nebo EMA cross (např. EMA25 > EMA52 + filtr volatility).
+
+Trhy: WS30, NDX, GOLD, OIL.
+
+Timeframe: H1 + D1.
+
+Váha v portfoliu: 35 %.
+
+Proč: Trendy jsou dlouhodobě nejrobustnější edge.
+
+👉 Testování:
+
+AmiBroker – AFL explore/backtest s EMA crossover.
+
+MT5 – EA (FollowTrend_LimitEMA_EA_v4_xx), optimalizovat parametry (EMA periody, trigger, limitní vstupy).
+
+Python – equity curve, sharpe, maxDD, rolling MAR.
+
+2️⃣ Mean-reversion (akcie / ETF)
+
+Logika: vstup, když RSI(2) < 10 nebo cena prorazí spodní Bollinger Band (reverze).
+
+Trhy: US akcie z S&P500, ETF (SPY, QQQ, IWM).
+
+Timeframe: D1.
+
+Váha v portfoliu: 25 %.
+
+Proč: Většina akcií má tendenci se vracet k průměru → odlišný edge než trend.
+
+👉 Testování:
+
+AmiBroker + AmiQuote – stáhni EOD data, otestuj RSI(2) strategie.
+
+MT5 – vytvořit EA (limitní vstup poblíž EMA20 s RSI filtrem).
+
+Python – simulace koše akcií (backtrader), statistiky portfolia.
+
+3️⃣ FX carry / momentum (měny)
+
+Logika: kupuj silné měny (EMA trend nahoru), prodávej slabé.
+
+Trhy: EURUSD, GBPJPY, AUDUSD, USDCHF.
+
+Timeframe: H4 / D1.
+
+Váha v portfoliu: 20 %.
+
+Proč: Diverzifikace přes měny, menší korelace s akciemi.
+
+👉 Testování:
+
+MT5 – optimalizace momentum EA (ADX + EMA cross).
+
+Python – párové obchodování (long nejsilnější, short nejslabší).
+
+4️⃣ Volatility / opční strategie (bonus, pokud máš přístup k opcím)
+
+Logika: short volatility (např. short strangles při vysokém VIX), nebo covered call na ETF.
+
+Trhy: SPY, QQQ.
+
+Timeframe: týdenní expirace.
+
+Váha v portfoliu: 20 %.
+
+Proč: Zajištění proti období, kdy akcie stagnují.
+
+👉 Testování:
+
+Python – knihovna quantlib nebo data z OptionMetrics / IBKR.
+
+Alternativa: pokud nechceš opce, můžeš místo toho použít mean-reversion na intradenních futures.
+
+⚖️ Alokace portfolia
+Složka	Váha
+Trend-follow (indexy, komodity)	35 %
+Mean-reversion (akcie/ETF)	25 %
+FX carry / momentum	20 %
+Volatility (opce) nebo intraday mean-rev	20 %
+🧪 Jak testovat celé portfolio
+
+Jednotlivé strategie backtestuj odděleně
+
+v AmiBrokeru (EOD akcie, indexy),
+
+v MT5 (futures, FX, intradenní testy).
+
+Export výsledků do CSV
+
+z MT5 reportů i AmiBrokeru.
+
+Python pro portfolio analýzu
+
+spojíš equity křivky všech strategií do jednoho portfolia,
+
+knihovny: pandas, quantstats, matplotlib.
+
+dopočítáš Sharpe, Sortino, VaR, maxDD, rolling korelace.
+
+Optimalizace váh
+
+můžeš použít Kelly fraction (kolik kapitálu přidělit každé strategii),
+
+nebo klasickou risk parity (každá složka má stejný risk, ne stejný kapitál).
+
+✅ Tohle je „realistická“ cesta, jak si sestavit vlastní multi-strategy portfolio,
