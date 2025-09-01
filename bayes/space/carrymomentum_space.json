@@ -1,0 +1,49 @@
+{
+  "InpEmaFast": {
+    "type": "int",
+    "min": 10,
+    "max": 60
+  },
+  "InpEmaSlow": {
+    "type": "int",
+    "min": 80,
+    "max": 300
+  },
+  "InpADXmin": {
+    "type": "int",
+    "min": 18,
+    "max": 35
+  },
+  "InpDMIFilter": {
+    "type": "cat",
+    "choices": [
+      0,
+      1
+    ]
+  },
+  "SL_ATR_mult": {
+    "type": "float",
+    "min": 1.2,
+    "max": 3.0
+  },
+  "TP_ATR_mult": {
+    "type": "float",
+    "min": 1.8,
+    "max": 4.5
+  },
+  "Trail_ATR": {
+    "type": "float",
+    "min": 0.8,
+    "max": 2.0
+  },
+  "LimitShift": {
+    "type": "float",
+    "min": 0.0,
+    "max": 0.6
+  },
+  "RiskPct": {
+    "type": "float",
+    "min": 0.2,
+    "max": 1.0
+  }
+}

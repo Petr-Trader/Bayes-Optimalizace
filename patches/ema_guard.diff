@@ -1,0 +1,14 @@
+--- a/bayes_optimize_parallel_v4_1.py
++++ b/bayes_optimize_parallel_v4_1.py
+@@ def objective(trial):
+-    ema_fast = trial.suggest_int("InpEmaFast", 10, 60)
+-    ema_slow = trial.suggest_int("InpEmaSlow", 80, 300)
++    ema_fast = trial.suggest_int("InpEmaFast", 10, 60)
++    ema_slow = trial.suggest_int("InpEmaSlow", 80, 300)
++    # EMA-guard: skip invalid combos
++    if ema_fast >= ema_slow:
++        # return a penalized score so the optimizer avoids it
++        return -1.0
+
+     adx_min = trial.suggest_int("InpADXmin", 18, 35)
+     # ...

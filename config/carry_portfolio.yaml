@@ -1,0 +1,12 @@
+# Pairs & timeframes to optimize/deploy (edit as needed)
+pairs:
+  - symbol: AUDJPY
+    timeframe: D1
+  - symbol: GBPJPY
+    timeframe: H4
+  - symbol: EURUSD
+    timeframe: D1
+  - symbol: USDCAD
+    timeframe: H4
+  - symbol: USDCHF
+    timeframe: D1
