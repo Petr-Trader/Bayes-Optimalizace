@@ -1,0 +1,10 @@
+; Baseline inputs for FX_CarryMomentum (edit if your EA uses different names)
+InpEmaFast=20
+InpEmaSlow=150
+InpADXmin=22
+InpDMIFilter=1       ; 0=off, 1=on
+SL_ATR_mult=2.0
+TP_ATR_mult=3.0
+Trail_ATR=1.0
+LimitShift=0.10
+RiskPct=0.60
